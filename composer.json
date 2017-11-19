@@ -1,0 +1,26 @@
+{
+  "name": "marcosadantas/expressive-redis",
+  "description": "Service provider zend expressive 2.x to redis/predis client",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marcos Dantas",
+      "email": "marcos.adantas@hotmail.com"
+    }
+  ],
+  "require": {
+    "predis/predis": "^2.0@dev",
+    "psr/container": "^1.0@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "ExpressiveRedis\\": "src/"
+    }
+  },
+  "extra": {
+    "zf": {
+      "config-provider": "ExpressiveRedis\\ConfigProvider"
+    }
+  }
+}
