@@ -8,6 +8,10 @@ class PredisFactory
 {
     public function __invoke(ContainerInterface $container)
     {
-        return new Client($container->get('config')['redis'] ?? []);
+        $redisConfig = $container->get('config')['redis'];
+        return new Client(
+            $redisConfig['redis']['connection'] ?? [],
+            $redisConfig['redis']['options'] ?? []
+        );
     }
 }
