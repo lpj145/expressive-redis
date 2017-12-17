@@ -17,6 +17,7 @@ class ConfigProvider
         return [
             'factories' => [
                 Client::class => PredisFactory::class,
+                Cache::class => CacheFactory::class
             ]
         ];
     }
