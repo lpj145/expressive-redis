@@ -8,6 +8,8 @@ class CacheFactory
 {
     public function __invoke(ContainerInterface $container)
     {
-        return new Cache($container->get(Client::class));
+        $cache = new Cache($container->get(Client::class));
+        $cache->setAsGlobal();
+        return $cache;
     }
 }
