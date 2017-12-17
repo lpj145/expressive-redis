@@ -6,6 +6,11 @@ use Predis\Client;
 class Cache implements CacheContract
 {
     /**
+     * @var $this
+     */
+    private static $globalInstance;
+
+    /**
      * @var Client
      */
     private $client;
@@ -33,6 +38,22 @@ class Cache implements CacheContract
     public function delete($key)
     {
         return $this->client->del($key);
+    }
+
+    /**
+     * Set instance of redis cache global scope
+     */
+    public function setAsGlobal()
+    {
+        self::$globalInstance = $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function instance()
+    {
+        return self::$globalInstance;
     }
 
 }
