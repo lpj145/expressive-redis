@@ -6,7 +6,7 @@ use Predis\Client;
 class Cache implements CacheContract
 {
     /**
-     * @var $this
+     * @var Cache
      */
     private static $globalInstance;
 
@@ -51,8 +51,9 @@ class Cache implements CacheContract
         self::$globalInstance = $this;
     }
 
+
     /**
-     * @return mixed
+     * @return Cache
      */
     public static function instance()
     {
