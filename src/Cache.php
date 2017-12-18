@@ -22,7 +22,10 @@ class Cache implements CacheContract
 
     public function set($key, $value, $ttlSeconds = 3600)
     {
-        return $this->client->setex($key, $ttlSeconds, $value);
+        if ($ttlSeconds !== -1) {
+            return $this->client->setex($key, $ttlSeconds, $value);
+        }
+        return $this->client->set($key, $value);
     }
 
     public function get($key)
